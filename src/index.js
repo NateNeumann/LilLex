@@ -7,19 +7,22 @@
 
 'use strict';
 
-const FACTS = [
-];
+const datamuse = require('datamuse');
 
 var handlers = {
-  'LaunchRequest': function () { this.emit('GetFact'); },
-  'GetNewFactIntent': function () { this.emit('GetFact'); },
-  'GetFact': function() {
-    // Randomly select a fact from the array
-    const factIndex = Math.floor(Math.random() * FACTS.length);
-    const randomFact = FACTS[factIndex];
+  'LaunchRequest': function () { this.emit('Hello'); },
+  'GetNewFactIntent': function () { this.emit('GetRhyme'); },
+  'GetRhyme': function() {
+    // TODO: Fix assignment of finalWord.
+    finalWord="cat";
+    datamuse.request(`words?rel_rhy=${finalWord}`);
+    .then((json) => {
+        console.log(json);
+        //do it!
+    });
 
     // Create speech output
-    const speechOutput = "Here's your fact: " + randomFact;
+    const speechOutput = "Here's your rhyme: " + randomFact;
     this.emit(':tellWithCard', speechOutput, "Major League Hacking (MLH) Facts", randomFact);
   }
 };
