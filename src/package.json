@@ -1,0 +1,19 @@
+{
+  "name": "lil-lex",
+  "version": "1.0.1",
+  "description": "An AWS Lambda Function to return rhymes for Alexa devices.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rhyme",
+    "rhymes",
+    "rap"
+  ],
+  "author": "Nate Neumann <nn.20@dartmouth.edu>",
+  "license": "MIT",
+  "dependencies": {
+    "alexa-sdk": "^1.0.9"
+  }
+}
