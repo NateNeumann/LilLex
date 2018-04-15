@@ -11,19 +11,19 @@ const datamuse = require('datamuse');
 
 var handlers = {
   'LaunchRequest': function () { this.emit('Hello'); },
-  'GetNewFactIntent': function () { this.emit('GetRhyme'); },
-  'GetRhyme': function() {
+  'MakeRhymeIntent': function () { this.emit('MakeRhyme'); },
+  'MakeRhyme': function() {
     // TODO: Fix assignment of finalWord.
-    finalWord="cat";
-    datamuse.request(`words?rel_rhy=${finalWord}`);
+    var rhyme = "No rhyme found."
+    let finalWord="cat";
+    datamuse.request(`words?rel_rhy=${finalWord}`)
     .then((json) => {
-        console.log(json);
-        //do it!
+        rhyme = json[0]["word"];
     });
 
     // Create speech output
-    const speechOutput = "Here's your rhyme: " + randomFact;
-    this.emit(':tellWithCard', speechOutput, "Major League Hacking (MLH) Facts", randomFact);
+    const speechOutput = "Here's your rhyme: " + rhyme;
+    this.emit(':tellWithCard', speechOutput, "Rhyme", rhyme);
   }
 };
 

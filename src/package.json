@@ -11,7 +11,7 @@
     "rhymes",
     "rap"
   ],
-  "author": "Nate Neumann <nn.20@dartmouth.edu>",
+  "author": "Nate Neumann <natejneumann@>",
   "license": "MIT",
   "dependencies": {
     "alexa-sdk": "^1.0.9"
